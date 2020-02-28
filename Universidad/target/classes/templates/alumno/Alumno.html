@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+<h1>Formulario Alumno</h1>
+<form method="post">
+    <table>
+        <tr>
+            <th>
+                Nombre:
+            </th>
+            <th>
+                <input type="text" th:name="nombre" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Rut:
+            </th>
+            <th>
+                <input type="text" th:name="rut" required>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                ID Alumno:
+            </th>
+            <th>
+                <input type="text" th:name="id_alum" required>
+            </th>
+        </tr>
+
+    </table>
+    <button type="submit">Enviar</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Rut</th>
+        <th>ID Alumno</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="alumno: ${alumnos}">
+        <th th:text="${alumno.nombre}"></th>
+        <th th:text="${alumno.rut}"></th>
+        <th th:text="${alumno.id_alum}"></th>
+
+    </tr>
+    </tbody>
+
+</table>
+<a href="/usuarios/">Volver</a>
+</body>
+</html>
