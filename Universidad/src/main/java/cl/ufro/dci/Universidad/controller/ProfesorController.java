@@ -3,6 +3,7 @@ package cl.ufro.dci.Universidad.controller;
 import cl.ufro.dci.Universidad.modelo.*;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/profesores")
@@ -11,7 +12,7 @@ public class ProfesorController {
     private Universidad universidad = Universidad.getInstance();
     private Asignatura duenio;
     @RequestMapping(value="/{asignatura}",method = RequestMethod.GET, produces = "application/json")
-    public ArrayList<Profesor> getIndex(@PathVariable("asignatura") String codigo){
+    public List<Profesor> getIndex(@PathVariable("asignatura") String codigo){
         System.out.println("asignatura :"+codigo);
         for (Asignatura usr : universidad.getAsignaturas()){
             if (usr.getCodigo().equals(codigo)){

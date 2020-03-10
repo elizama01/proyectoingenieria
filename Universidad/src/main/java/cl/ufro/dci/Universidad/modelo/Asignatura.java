@@ -1,13 +1,22 @@
 package cl.ufro.dci.Universidad.modelo;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+@Table(name = "ASIGNATURA")
 public class Asignatura {
-    private String nombre;
-    private String codigo;
+   @Id
+   private String codigo;
+@Column(name = "NOMBRE")
+   private String nombre;
+@Column(name = "NomDpto")
     private String nomDpto;
-    private ArrayList<Profesor> profesores;
-    private ArrayList<Alumno> alumnos;
+@OneToMany
+    private List<Profesor> profesores;
+@OneToMany
+    private List<Alumno> alumnos;
 
     public Asignatura() {
         profesores = new ArrayList<>();
@@ -37,7 +46,7 @@ public class Asignatura {
         this.nomDpto = nomDpto;
     }
 
-    public ArrayList<Profesor> getProfesores() {
+    public List<Profesor> getProfesores() {
         return profesores;
     }
 
@@ -45,7 +54,7 @@ public class Asignatura {
         this.profesores.add(profesores);
     }
 
-    public ArrayList<Alumno> getAlumnos() {
+    public List<Alumno> getAlumnos() {
         return alumnos;
     }
 
